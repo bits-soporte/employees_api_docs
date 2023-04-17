@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Central Empleados</title>
+    <meta name="description" content="" />
+
+    <meta http-equiv="cleartype" content="on" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/hightlightjs-dark.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&family=Source+Code+Pro:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" media="all" />
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+
+  <body>
+    <div class="left-menu">
+      <div class="content-logo">
+        <div class="logo">
+          <img src="images/logo.png" height="32" />
+          <span>Central Empleados</span>
+        </div>
+        <button class="burger-menu-icon" id="button-menu-mobile">
+          <svg width="34" height="34" viewBox="0 0 100 100">
+            <path
+              class="line line1"
+              d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+            ></path>
+            <path class="line line2" d="M 20,50 H 80"></path>
+            <path
+              class="line line3"
+              d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu-closer"></div>
+      <div class="content-menu">
+        <div class="content-infos">
+          <div class="info"><b>Version:</b> 1.0.0</div>
+          <div class="info"><b>Ultima vez actualizado:</b> Abril 17, 2023</div>
+        </div>
+        <ul>
+          <li class="scroll-to-link active" data-target="content-get-started">
+            <a>EMPEZAR</a>
+          </li>
+          <li class="scroll-to-link" data-target="content-get-employees">
+            <a>TRAER EMPLEADOS</a>
+          </li>
+          <li class="scroll-to-link" data-target="content-post-deductions">
+            <a>DEDUCCIONES</a>
+          </li>
+          <li class="scroll-to-link" data-target="content-errors">
+            <a>Errores</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="content-page">
+      <div class="content-code"></div>
+      <div class="content">
+        <div class="overflow-hidden content-section" id="content-get-started">
+          <h1>EMPEZAR</h1>
+          <pre>
+    API Endpoint
+
+        http://10.0.0.196/
+                </pre
+          >
+          <p>
+            Esta API es un servicio web que permite a los desarrolladores
+            obtener información sobre los empleados de la empresa. Asi como
+            tambien agregar deducciones por la compra de comida.
+          </p>
+        </div>
+        <div class="overflow-hidden content-section" id="content-get-employees">
+          <h2>TRAER EMPLEADOS</h2>
+          <pre><code class="bash">
+# Aqui un ejemplo de como traer empleados por medio de curl
+curl \
+-X GET http://10.0.0.196/employees \
+-F 'offset=0' \
+-F 'limit=5'
+                </code></pre>
+          <p>
+            Para traer empleados, se debe hacer una solicitud GET al siguiente
+            URL :<br />
+            <code class="higlighted break-word"
+              >http://10.0.0.196/employees</code
+            >
+          </p>
+          <br />
+          <pre><code class="json">
+Resultado de ejemplo :
+
+{
+	"data": [
+		{
+			"id": 1001,
+			"first_name": " Albinson Rafael",
+			"last_name": "Arias Almonte",
+			"department": "DESARROLLADORES",
+			"turn": "COMPLETO"
+		},
+		{
+			"id": 1002,
+			"first_name": " Albinson Rafael",
+			"last_name": "Arias Almonte",
+			"department": "DESARROLLADORES",
+			"turn": "COMPLETO"
+		},
+		{
+			"id": 1003,
+			"first_name": " Albinson Rafael",
+			"last_name": "Arias Almonte",
+			"department": "DESARROLLADORES",
+			"turn": "COMPLETO"
+		},
+		{
+			"id": 1004,
+			"first_name": " Albinson Rafael",
+			"last_name": "Arias Almonte",
+			"department": "DESARROLLADORES",
+			"turn": "COMPLETO"
+		},
+		{
+			"id": 1005,
+			"first_name": " Albinson Rafael",
+			"last_name": "Arias Almonte",
+			"department": "DESARROLLADORES",
+			"turn": "COMPLETO"
+		}
+	]
+}
+                </code></pre>
+          <h4>ATRIBUTOS DEL RESULTADO</h4>
+          <table class="central-overflow-x">
+            <thead>
+              <tr>
+                <th>Atributo</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td>Integer</td>
+                <td>El id del empleado. Este es unico para cada empleado.</td>
+              </tr>
+              <tr>
+                <td>first_name</td>
+                <td>String</td>
+                <td>El primer nombre del empleado.</td>
+              </tr>
+              <tr>
+                <td>last_name</td>
+                <td>String</td>
+                <td>Los apellidos del empleado.</td>
+              </tr>
+              <tr>
+                <td>department</td>
+                <td>String</td>
+                <td>El departamento al que pertenece este empleado.</td>
+              </tr>
+              <tr>
+                <td>turn</td>
+                <td>String</td>
+                <td>El turno de trabajo del empleado.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>PARAMETROS DEL QUERY</h4>
+          <table class="central-overflow-x">
+            <thead>
+              <tr>
+                <th>Atributo</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td>Integer</td>
+                <td>
+                  (opcional) El codigo de un empleado si desea buscar uno en
+                  especifico.
+                </td>
+              </tr>
+              <tr>
+                <td>offset</td>
+                <td>Integer</td>
+                <td>
+                  (opcional - defecto: 0) Un cursor para usar en la paginación.
+                  La paginación comienza en 0, y cuenta cada objeto ordenado por
+                  el codigo de empleado. Ejemplo: si hay 10 empleados, y quieres
+                  los empleados 6-10, el offset es 5 y el limit es 5.
+                </td>
+              </tr>
+              <tr>
+                <td>limit</td>
+                <td>Integer</td>
+                <td>
+                  (opcional - defecto: 100) Un limite en el numero de objetos a
+                  ser devueltos.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="overflow-hidden content-section"
+          id="content-post-deductions"
+        >
+          <h2>DEDUCCIONES</h2>
+          <pre><code class="bash">
+# Aqui un ejemplo de como agregar una deduccion por medio de curl
+curl \
+-X POST http://10.0.0.196/deductible \
+-F 'employee_id=1001' \
+-F 'amount=150'
+                </code></pre>
+          <p>
+            Para agregar deducciones a empleados, se debe hacer una solicitud
+            POST al siguiente URL :<br />
+            <code class="higlighted break-word"
+              >http://10.0.0.196/deductible</code
+            >
+          </p>
+          <br />
+          <pre><code class="json">
+Resultado de ejemplo :
+
+{
+	"status": 200
+}
+
+                </code></pre>
+          <h4>ATRIBUTOS DEL RESULTADO</h4>
+          <table class="central-overflow-x">
+            <thead>
+              <tr>
+                <th>Atributo</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>status</td>
+                <td>Integer</td>
+                <td>
+                  El status de la deduccion, si es 200 se hizo correctamente, de
+                  lo contrario hubo un error refierase a la sección de
+                  <a class="scroll-to-link" data-target="content-errors"
+                    >ERRORES</a
+                  >
+                  para más información.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+
+          <h4>PARAMETROS DEL QUERY</h4>
+          <table class="central-overflow-x">
+            <thead>
+              <tr>
+                <th>Atributo</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>employee_id</td>
+                <td>Integer</td>
+                <td>
+                  El codigo de empleado al que se le va a agregar la deduccion.
+                </td>
+              </tr>
+              <tr>
+                <td>amount</td>
+                <td>Float</td>
+                <td>
+                  El monto de la deduccion, este debe ser un numero positivo.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="overflow-hidden content-section" id="content-errors">
+          <h2>Errores</h2>
+          <pre><code class="json">
+
+            Resultado de ejemplo :
+            
+            {
+              "error": "amount is required"
+            }
+                            </code></pre>
+          <p>En caso de cualquier error el api devuelve lo siguiente:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Atributo</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>error</td>
+                <td>String</td>
+                <td>Un mensaje con la descripción del error que sucedió</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="content-code"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
