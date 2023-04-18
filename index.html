@@ -74,7 +74,7 @@
           <pre>
     API Endpoint
 
-        http://10.0.0.196/
+        http://10.0.0.196:5050/
                 </pre
           >
           <p>
@@ -88,7 +88,7 @@
           <pre><code class="bash">
 # Aqui un ejemplo de como traer empleados por medio de curl
 curl \
--X GET http://10.0.0.196/employees \
+-X GET http://10.0.0.196:5050/employees \
 -F 'offset=0' \
 -F 'limit=5'
                 </code></pre>
@@ -96,7 +96,7 @@ curl \
             Para traer empleados, se debe hacer una solicitud GET al siguiente
             URL :<br />
             <code class="higlighted break-word"
-              >http://10.0.0.196/employees</code
+              >http://10.0.0.196:5050/employees</code
             >
           </p>
           <br />
@@ -228,7 +228,7 @@ Resultado de ejemplo :
           <pre><code class="bash">
 # Aqui un ejemplo de como agregar una deduccion por medio de curl
 curl \
--X POST http://10.0.0.196/deductible \
+-X POST http://10.0.0.196:5050/deductible \
 -F 'employee_id=1001' \
 -F 'amount=150'
                 </code></pre>
@@ -236,7 +236,7 @@ curl \
             Para agregar deducciones a empleados, se debe hacer una solicitud
             POST al siguiente URL :<br />
             <code class="higlighted break-word"
-              >http://10.0.0.196/deductible</code
+              >http://10.0.0.196:5050/deductible</code
             >
           </p>
           <br />
