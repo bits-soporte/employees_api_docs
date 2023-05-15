@@ -47,8 +47,10 @@
       <div class="mobile-menu-closer"></div>
       <div class="content-menu">
         <div class="content-infos">
-          <div class="info"><b>Version:</b> 1.0.0</div>
-          <div class="info"><b>Ultima vez actualizado:</b> Abril 17, 2023</div>
+          <div class="info"><b>Version:</b> 1.0.1</div>
+          <div class="info">
+            <b>Ultima vez actualizado:</b> 15 de Mayo, 2023
+          </div>
         </div>
         <ul>
           <li class="scroll-to-link active" data-target="content-get-started">
@@ -230,7 +232,8 @@ Resultado de ejemplo :
 curl \
 -X POST http://10.0.0.196:5050/deductible \
 -F 'employee_id=1001' \
--F 'amount=150'
+-F 'amount=150' \ 
+-F 'food_type=200' 
                 </code></pre>
           <p>
             Para agregar deducciones a empleados, se debe hacer una solicitud
@@ -297,6 +300,19 @@ Resultado de ejemplo :
                 <td>
                   El monto de la deduccion, este debe ser un numero positivo.
                 </td>
+              </tr>
+              <tr>
+                <td>food_type</td>
+                <td>Integer</td>
+                <td>
+                  El codigo del tipo de comida, este debe ser uno de los
+                  siguientes: 200(Desayuno), 201(Comida), 202(Cena).
+                </td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td>String</td>
+                <td>(opcional) El estado de la deduccion.</td>
               </tr>
             </tbody>
           </table>
